@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={cn("flex gap-2 bg-slate-890 text-slate-300", inter.className)}>
+      <body className={cn("bg-slate-890 text-slate-300", inter.className)}>
       <Navbar />
         {children}
       </body>
