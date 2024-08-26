@@ -6,6 +6,7 @@ import {cn} from "@/helpers/cn";
 import {NavbarProps} from "@/components/Navbar/types";
 import {NavbarList} from "@/components/Navbar/NavbarList";
 import {NavbarListItemLink} from "@/components/Navbar/NavbarListItemLink";
+import Image from "next/image";
 
 
 
@@ -14,9 +15,11 @@ export default function Navbar( { className, ...props}: NavbarProps ) {
         <nav
             className={cn(" flex flex-col  h-screen bg-slate-900 border-r border-indigo-400/20 hover:border-indigo-400/40 w-72 text-slate-300", className)} {...props}>
             <div className="flex items-center justify-center m-4">
-                <img
+                <Image
                     src="https://emersonbroga.com/e/assets/emersonbroga-logo-name-pink.png" alt=""
                     className="w-auto h-12 p-2"
+                    width={112}
+                    height={32}
                 />
             </div>
 
