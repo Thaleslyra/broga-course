@@ -1,31 +1,13 @@
 import React from "react";
 import {FaceHappy, GamepadIcon, HomeIcon, MedalIcon} from "@/components";
-import {green} from "next/dist/lib/picocolors";
+
 import {RouteIcon} from "@/components/Icons/Icons/RouteIcon";
 import {cn} from "@/helpers/cn";
-
-type NavbarProps = React.ComponentProps<'nav'>;
-type NavbarListProps = React.ComponentProps<'ul'>;
-type NavbarItemProps = React.ComponentProps<'li'>;
-
+import {NavbarProps} from "@/components/Navbar/types";
+import {NavbarList} from "@/components/Navbar/NavbarList";
+import {NavbarListItemLink} from "@/components/Navbar/NavbarListItemLink";
 
 
-const NavbarList = ({children, className, ...props}: NavbarListProps) => {
-    return (
-        <ul className={ cn("my-4 border-t  border-indigo-400/20 hover:border-indigo-400/40", className)} {...props}>
-            {children}
-        </ul>
-    )
-}
-
-const NavbarLisItem = ({children, className, ...props}:NavbarItemProps) => {
-    return (
-        <li className={ cn("my-2 p-2 rounded-lg bg-transparent hover:bg-indigo-400/40 cursor-pointer flex gap-2 items-center hover:text-slate-100", className)} {...props}>
-            {children}
-        </li>
-
-    )
-}
 
 export default function Navbar( { className, ...props}: NavbarProps ) {
     return (
@@ -40,29 +22,28 @@ export default function Navbar( { className, ...props}: NavbarProps ) {
 
 
             <NavbarList className={"flex-grow"}>
-                <NavbarLisItem>
+                <NavbarListItemLink href="/">
                     <HomeIcon className=" w-4 h-4 "/> Home
-                </NavbarLisItem>
+                </NavbarListItemLink>
 
-                <NavbarLisItem>
+                <NavbarListItemLink href={"/games"}>
                     <GamepadIcon className="w-4 h-4"/> Games
-                </NavbarLisItem>
+                </NavbarListItemLink>
 
-                <NavbarLisItem>
+                <NavbarListItemLink href={"/top-10"}>
                     <MedalIcon className="w-4 h-4"/> Top 10
-                </NavbarLisItem>
+                </NavbarListItemLink>
 
-                <NavbarLisItem>
+                <NavbarListItemLink href={"/walkthroughs"}>
                     <RouteIcon className="w-4 h-4"/> Walkthroughs
-                </NavbarLisItem>
+                </NavbarListItemLink>
 
             </NavbarList>
 
             <NavbarList className={""}>
-                <NavbarLisItem>
+                <NavbarListItemLink href={"/user"}>
                     <FaceHappy className="w-4 h-4"/>User
-                </NavbarLisItem>
-
+                </NavbarListItemLink>
             </NavbarList>
 
         </nav>
